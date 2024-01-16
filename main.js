@@ -5,6 +5,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 const config = require('./config.json');
 client.prefix = config.prefix;
 client.limits = {}
+if (process.env.test) {
+    client.test = true
+}
 
 client.commands = new Collection()
 const events = fs.readdirSync('./handles/events').filter(file => file.endsWith('.js'));
@@ -16,7 +19,4 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
     client.handleCommands(commandFiles);
     client.events(events);
     client.login(process.env.token);
-    if (process.env.test) {
-        process.exit(0)
-    }
 })();
