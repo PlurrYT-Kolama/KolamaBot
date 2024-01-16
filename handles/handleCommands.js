@@ -8,7 +8,7 @@ require('dotenv').config()
 
 module.exports = (client) => {
     client.handleCommands = async (commandFiles) => {
-        const clientId = '1098341584191365220';
+        var clientId = '1098341584191365220';
         if (client.test) {
             clientId = '1196909255723327599';
         }
