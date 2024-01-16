@@ -4,14 +4,14 @@ const fs = require('fs');
 const upd = require('../config.json').updatecommands;
 require('dotenv').config()
 
-const clientId = '1098341584191365220';
 
-if (client.test) {
-    clientId = '1196909255723327599';
-}
 
 module.exports = (client) => {
     client.handleCommands = async (commandFiles) => {
+        const clientId = '1098341584191365220';
+        if (client.test) {
+            clientId = '1196909255723327599';
+        }
         client.commandArray = [];
         for (const file of commandFiles) {
             const command = require(`../commands/${file}`);
