@@ -6,15 +6,15 @@ const time = 1 * 1000 * 60
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("ban")
-        .setDescription("Bans a member")
-        .addUserOption(option => option.setName('user').setDescription('The user to ban').setRequired(true))
+        .setDescription("Bans a member using User ID")
+        .addStringOption(option => option.setName('user').setDescription('The User ID to ban').setRequired(true))
         .addStringOption(option => option.setName('reason').setDescription('Reason for banning someone.').setRequired(false))
         .setDMPermission(false)
     ,
     async execute(interaction, client) {
         await interaction.deferReply();
-        const user = interaction.options.getUser('user')
-        const member = await interaction.guild.members.fetch(user.id);
+        const user = await interaction.options.getString('user');
+        const member = await interaction.guild.members.fetch(interaction.user.id)
         if (!member.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Banned by ${interaction.user.username}`
         //if (interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers) || interaction.user.id != '640579687822917649') {
@@ -29,9 +29,10 @@ module.exports = {
             let result = await checkjson(interaction.user.id, 'ban', interaction.member.roles.highest.id);
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for ban usage'); }
             try {
-                await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, member, reason)
-                await member.ban({ reason });
-                interaction.editReply(`Banned <@${user.id}>\nReason: ${reason}`);
+                const user_fetched = await client.user.fetch()
+                await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, user, reason)
+                await user.ban({ reason });
+                interaction.editReply(`Banned <@${user}>\nReason: ${reason}`);
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
             } catch (err) {
                 interaction.editReply(`There was an error:n ${err}`);
