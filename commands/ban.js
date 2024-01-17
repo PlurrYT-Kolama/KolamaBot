@@ -14,6 +14,7 @@ module.exports = {
     async execute(interaction, client) {
         await interaction.deferReply();
         const user = await interaction.options.getString('user');
+        
         const member = await interaction.guild.members.fetch(interaction.user.id);
         if (interaction.guild.members.cache.some(x => x.id == user)) {
           if (!user.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
@@ -30,9 +31,10 @@ module.exports = {
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for ban usage'); }
             try {
                 const user_fetched = await client.user.fetch()
-                await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, user, reason)
-                await user.ban({ reason });
+                const user_to_ban = await interaction.guild.members.fetch(user);
+                await user_to_ban.ban({ reason });
                 interaction.editReply(`Banned <@${user}>\nReason: ${reason}`);
+                await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, user, reason)
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
             } catch (err) {
                 interaction.editReply(`There was an error:n ${err}`);
