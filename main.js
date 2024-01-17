@@ -16,7 +16,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 (async () => {
     require('./handles/handleEvents.js')(client);
     require('./handles/handleCommands.js')(client);
-    require('./handles/handleReactions.js')(client);
     client.handleCommands(commandFiles);
     client.events(events);
     client.login(process.env.token);
