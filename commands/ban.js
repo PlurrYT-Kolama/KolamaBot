@@ -15,7 +15,7 @@ module.exports = {
         await interaction.deferReply();
         const user = await interaction.options.getString('user');
         const member = await interaction.guild.members.fetch(interaction.user.id)
-        if (!user.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
+        //if (!user.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Banned by ${interaction.user.username}`
         //if (interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers) || interaction.user.id != '640579687822917649') {
         //     await member.ban({ reason });
