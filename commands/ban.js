@@ -15,7 +15,7 @@ module.exports = {
         await interaction.deferReply();
         const user = await interaction.options.getString('user');
         const member = await interaction.guild.members.fetch(interaction.user.id)
-        if (!member.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
+        if (!user.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Banned by ${interaction.user.username}`
         //if (interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers) || interaction.user.id != '640579687822917649') {
         //     await member.ban({ reason });
@@ -25,7 +25,7 @@ module.exports = {
         if (checkresult == true) {// check for staff YAY
             if (client.limits[`${interaction.user.id}`] < Date.now()) delete client.limits[`${interaction.user.id}`];
             if (Object.keys(client.limits).includes(interaction.user.id)) return interaction.editReply(`You have already kicked/banned/timeouted someone recently. You can use this again in <t:${Math.round(client.limits[`${interaction.user.id}`] / 1000)}:R>`);
-            if (interaction.member.roles.highest.position <= member.roles.highest.position) return interaction.editReply('You do not have permission to ban this person');
+            if (interaction.member.roles.highest.position <= user.roles.highest.position) return interaction.editReply('You do not have permission to ban this person');
             let result = await checkjson(interaction.user.id, 'ban', interaction.member.roles.highest.id);
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for ban usage'); }
             try {
