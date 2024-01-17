@@ -1,7 +1,8 @@
 module.exports = {
-    console.log("i work")
     name: 'messageReactionAdd',
     async execute(reaction, user) {
+            console.log("i work")
+
             try {
                 //if (reaction.message.guild) {
                     const messageId = reaction.message.id;
