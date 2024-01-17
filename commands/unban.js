@@ -23,6 +23,7 @@ module.exports = {
             if (Object.keys(client.limits).includes(interaction.user.id)) return interaction.editReply(`You have already kicked/banned/timeouted someone recently. You can use this again in <t:${Math.round(client.limits[`${interaction.user.id}`] / 1000)}:R>`);
             let result = await checkjson(interaction.user.id, 'unban', interaction.member.roles.highest.id);
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for unban usage'); }
+            const user_fetched = await client.fetchUser()
             try {
                 await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, member, reason)
                 await interaction.guild.members.unban(interaction.options.getString('userid'),{ reason })
