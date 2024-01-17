@@ -1,14 +1,16 @@
 module.exports = {
     name: 'messageReactionAdd',
     async execute(reaction, user) {
-
-        if (user.partial) {
             try {
-                await user.fetch();
                 if (reaction.message.guild) {
-                    if (reaction.message.id == '1197237806486011926') {
+                    const messageId = reaction.message.id;
+                    const reactionId = reaction.emoji.id;
+                    const reactionName = reaction.emoji.name;
+                    if (messageId == '1197237806486011926') {
                         const member = reaction.message.guild.members.cache.get(user.id);
-                    
+                        if (!member) {
+                            return;
+                        }
                         if (member) console.log(member.roles);
                     }
                 }
@@ -16,6 +18,5 @@ module.exports = {
             catch (error) {
                 console.error(error);
             }
-        }
     },
 };
