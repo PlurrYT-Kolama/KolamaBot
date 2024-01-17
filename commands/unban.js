@@ -14,8 +14,8 @@ module.exports = {
     ,
     async execute(interaction, client) {
         await interaction.deferReply();
-        const user = await client.users.fetch(interaction.options.getString('userid'));
-        const member = await interaction.guild.members.fetch(user.id);
+        const user = await interaction.options.getString('userid');
+        const member = await interaction.guild.members.fetch(interaction.user.id)
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Unbanned by ${interaction.user.username}`
         let checkresult = await checkrole(interaction.member.roles.highest.id)
         if (checkresult == true) {// check for staff YAY
@@ -25,11 +25,14 @@ module.exports = {
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for unban usage'); }
             const user_fetched = await client.fetchUser()
             try {
+                //await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, member, reason)
+                //await interaction.guild.members.unban(user)//,{ reason })
+                //interaction.editReply(`Removed ban for <@${user.id}>\nReason: ${reason}`);
+                //client.limits[`${interaction.user.id}`] = Date.now() + time;
+                await interaction.guild.members.unban(user)
                 await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, member, reason)
-                await interaction.guild.members.unban(user)//,{ reason })
-                interaction.editReply(`Removed ban for <@${user.id}>\nReason: ${reason}`);
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
-                client.limits[`${interaction.user.id}`] = Date.now() + time;
+                interaction.editReply(`Removed ban for <@${user}>\nReason: ${reason}`);
             } catch (err) {
                 interaction.editReply(`There was an error:n ${err}`);
             }
