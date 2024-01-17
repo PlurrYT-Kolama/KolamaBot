@@ -3,7 +3,6 @@ module.exports = {
     async execute(reaction, user) {
             const message = !reaction.message.partial ? reaction.message : await reaction.message.fetch();
             try {
-                if (reaction.message.guild) {
                     const messageId = reaction.message.id;
                     const reactionId = reaction.emoji.id;
                     const reactionName = reaction.emoji.name;
@@ -12,7 +11,6 @@ module.exports = {
                         return;
                     }
                     if (member) console.log(member.roles);
-                }
             }
             catch (error) {
                 console.log(error);
