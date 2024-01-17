@@ -31,8 +31,7 @@ module.exports = {
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for ban usage'); }
             try {
                 const user_fetched = await client.user.fetch()
-                const user_to_ban = await interaction.guild.members.fetch(user);
-                await user_to_ban.ban({ reason });
+                await interaction.guild.bans.create(user, { reason }); // Ban the user using their ID
                 interaction.editReply(`Banned <@${user}>\nReason: ${reason}`);
                 await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, user, reason)
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
