@@ -8,7 +8,7 @@ client.limits = {}
 if (process.env.test) {
     client.test = true
 }
-client.ticketcache = client.guilds.cache.find((x) => (x.id === '1093888852546043914').channel.messages.cache.find((x) => (x.id === '1197237806486011926'))
+client.ticketcache = client.guilds.cache.find((x) => (x.id === '1093888852546043914')).channel.messages.cache.find((x) => (x.id === '1197237806486011926'))
 client.commands = new Collection()
 const events = fs.readdirSync('./handles/events').filter(file => file.endsWith('.js'));
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
