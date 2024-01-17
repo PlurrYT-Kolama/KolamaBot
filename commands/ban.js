@@ -15,7 +15,7 @@ module.exports = {
         await interaction.deferReply();
         const user = await interaction.options.getString('user');
         const member = await interaction.guild.members.fetch(interaction.user.id);
-        if (client.guilds.get('1093888852546043914').member(user)) {
+        if (interaction.guild.members.cache.some(x => x.id == user)) {
           if (!user.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
         };
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Banned by ${interaction.user.username}`
@@ -23,7 +23,7 @@ module.exports = {
         if (checkresult == true) {// check for staff YAY
             if (client.limits[`${interaction.user.id}`] < Date.now()) delete client.limits[`${interaction.user.id}`];
             if (Object.keys(client.limits).includes(interaction.user.id)) return interaction.editReply(`You have already kicked/banned/timeouted someone recently. You can use this again in <t:${Math.round(client.limits[`${interaction.user.id}`] / 1000)}:R>`);
-            if (client.guilds.get('1093888852546043914').member(user)) {
+            if (interaction.guild.members.cache.some(x => x.id == user)) {
                 if (interaction.member.roles.highest.position <= user.roles.highest.position) return interaction.editReply('You do not have permission to ban this person');
             };
             let result = await checkjson(interaction.user.id, 'ban', interaction.member.roles.highest.id);
