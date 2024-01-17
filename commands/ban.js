@@ -17,7 +17,7 @@ module.exports = {
         
         const member = await interaction.guild.members.fetch(interaction.user.id);
         if (interaction.guild.members.cache.some(x => x.id == user)) {
-          if (!user.bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
+          if (!interaction.guild.members.cache.some(x => x.id == user).bannable) return interaction.editReply({ content: `I cannot ban this user`, ephemeral: true });
         };
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Banned by ${interaction.user.username}`
         let checkresult = await checkrole(interaction.member.roles.highest.id)
@@ -25,12 +25,12 @@ module.exports = {
             if (client.limits[`${interaction.user.id}`] < Date.now()) delete client.limits[`${interaction.user.id}`];
             if (Object.keys(client.limits).includes(interaction.user.id)) return interaction.editReply(`You have already kicked/banned/timeouted someone recently. You can use this again in <t:${Math.round(client.limits[`${interaction.user.id}`] / 1000)}:R>`);
             if (interaction.guild.members.cache.some(x => x.id == user)) {
-                if (interaction.member.roles.highest.position <= user.roles.highest.position) return interaction.editReply('You do not have permission to ban this person');
+                if (interaction.member.roles.highest.position <= interaction.guild.members.cache.some(x => x.id == user).roles.highest.position) return interaction.editReply('You do not have permission to ban this person');
             };
             let result = await checkjson(interaction.user.id, 'ban', interaction.member.roles.highest.id);
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for ban usage'); }
             try {
-                const user_fetched = await client.user.fetch()
+                //const user_fetched = await client.user.fetch()
                 await interaction.guild.bans.create(user, { reason }); // Ban the user using their ID
                 interaction.editReply(`Banned <@${user}>\nReason: ${reason}`);
                 await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, user, reason)
