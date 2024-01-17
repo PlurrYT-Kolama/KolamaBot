@@ -8,6 +8,7 @@ client.limits = {}
 if (process.env.test) {
     client.test = true
 }
+client.commands = new Collection()
 client.guilds.fetch('1093888852546043914') // Fetch the guild by ID
   .then(guild => {
     guild.channels.fetch('channel_id') // Replace 'channel_id' with your channel ID
