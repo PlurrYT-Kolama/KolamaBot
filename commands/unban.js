@@ -25,10 +25,6 @@ module.exports = {
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for unban usage'); }
             const user_fetched = await client.user.fetch()
             try {
-                //await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, member, reason)
-                //await interaction.guild.members.unban(user)//,{ reason })
-                //interaction.editReply(`Removed ban for <@${user.id}>\nReason: ${reason}`);
-                //client.limits[`${interaction.user.id}`] = Date.now() + time;
                 await interaction.guild.members.unban(user)
                 await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, member, reason)
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
