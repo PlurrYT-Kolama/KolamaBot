@@ -21,7 +21,7 @@ module.exports = {
         };
         const reason = `${interaction.options.getString('reason') || 'No reason given'} | Banned by ${interaction.user.username}`
         let checkresult = await checkrole(interaction.member.roles.highest.id)
-        if (checkresult == true) {// check for staff YAY
+        if (checkresult == true) {
             if (client.limits[`${interaction.user.id}`] < Date.now()) delete client.limits[`${interaction.user.id}`];
             if (Object.keys(client.limits).includes(interaction.user.id)) return interaction.editReply(`You have already kicked/banned/timeouted someone recently. You can use this again in <t:${Math.round(client.limits[`${interaction.user.id}`] / 1000)}:R>`);
             if (interaction.guild.members.cache.some(x => x.id == user)) {
@@ -30,8 +30,7 @@ module.exports = {
             let result = await checkjson(interaction.user.id, 'ban', interaction.member.roles.highest.id);
             if (result == true) { return interaction.editReply('You used your "Highest Staff Role" limit for ban usage'); }
             try {
-                //const user_fetched = await client.user.fetch()
-                await interaction.guild.bans.create(user, { reason }); // Ban the user using their ID
+                await interaction.guild.bans.create(user, { reason });
                 interaction.editReply(`Banned <@${user}>\nReason: ${reason}`);
                 await updatejson(interaction.user.id, 'ban', interaction.member.roles.highest.id, client, user, reason)
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
