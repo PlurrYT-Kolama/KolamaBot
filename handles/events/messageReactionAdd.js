@@ -1,4 +1,5 @@
 module.exports = {
+    console.log("i work")
     name: 'messageReactionAdd',
     async execute(reaction, user) {
             try {
