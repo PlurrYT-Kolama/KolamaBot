@@ -26,7 +26,7 @@ module.exports = {
             const user_fetched = await client.user.fetch()
             try {
                 await interaction.guild.members.unban(user)
-                await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, member, reason)
+                await updatejson(interaction.user.id, 'unban', interaction.member.roles.highest.id, client, user, reason)
                 client.limits[`${interaction.user.id}`] = Date.now() + time;
                 interaction.editReply(`Removed ban for <@${user}>\nReason: ${reason}`);
             } catch (err) {
