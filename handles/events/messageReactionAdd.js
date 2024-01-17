@@ -2,7 +2,7 @@ module.exports = {
     name: 'messageReactionAdd',
     async execute(reaction, user) {
             try {
-                if (reaction.message.guild) {
+                //if (reaction.message.guild) {
                     const messageId = reaction.message.id;
                     const reactionId = reaction.emoji.id;
                     const reactionName = reaction.emoji.name;
@@ -13,7 +13,7 @@ module.exports = {
                         }
                         if (member) console.log(member.roles);
                     //}
-                }
+                //}
             }
             catch (error) {
                 console.log(error);
