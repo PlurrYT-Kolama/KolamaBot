@@ -1,5 +1,6 @@
 module.exports = {
     name: 'messageReactionAdd',
+    once: false,
     async execute(reaction, user) {
             const message = !reaction.message.partial ? reaction.message : await reaction.message.fetch();
             try {
