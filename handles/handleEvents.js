@@ -29,7 +29,7 @@ module.exports = (client) => {
                     }
               //  }/*else if(reaction.name === '🔎'){
                    // us
-                }
+                //}
             //reaction.users.remove(user.id)
            // }
     })
