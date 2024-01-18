@@ -42,8 +42,8 @@ module.exports = {
                     console.log(test)
                 }
           //  }/*else if(reaction.name === '🔎'){
-                us
-            }*/
+               // us
+            }
         //reaction.users.remove(user.id)
         }
 };
