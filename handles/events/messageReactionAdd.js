@@ -8,7 +8,7 @@ module.exports = {
             const guildId = reaction.message.guild.id;
             if(reaction.message.id === '1197237806486011926'){
                 console.log(reaction._emoji.name);
-                if(reaction._emoji.name === ':one:'){
+                if(reaction._emoji.name === '🎟️'){
                     await client.ticketManager.createTicket(guildId, memberId);
                 }
             }
