@@ -1,7 +1,12 @@
 const { Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permissions, MessageManager, Embed, Collection, WebhookClient, Events, AuditLogEvent, Guild, InteractionType, ActivityType, Options } = require(`discord.js`);
 require('dotenv').config();
 const fs = require('fs');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions] });
+//const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessageReactions] });
+const client = new Client({
+    intents: Object.keys(GatewayIntentBits).map((a)=>{
+        return GatewayIntentBits[a]
+    }),
+});
 const config = require('./config.json');
 client.prefix = config.prefix;
 client.limits = {}
