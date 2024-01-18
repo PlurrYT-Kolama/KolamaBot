@@ -26,7 +26,6 @@ module.exports = {
     async execute(reaction, user)  {
             const member = reaction.message.guild.members.fetch(user.id)
             if (reaction.partial) {
-                // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
                 try {
                     await reaction.fetch();
                 } catch (error) {
@@ -35,15 +34,14 @@ module.exports = {
                     return;
                 }
             }
-            // Now the message has been cached and is fully available
-            if(reaction.message.id === '1197237806486011926'){
+            //if(reaction.message.id === '1197237806486011926'){
                 //const role = reaction.message.guild.roles.cache.find(r => r.name === '🔔')
                 console.log(reaction._emoji.name)
                 if(reaction._emoji.name === '🔔'){
                     //member.roles.add(role.id)
                     console.log(test)
                 }
-            }/*else if(reaction.name === '🔎'){
+          //  }/*else if(reaction.name === '🔎'){
                 us
             }*/
         //reaction.users.remove(user.id)
