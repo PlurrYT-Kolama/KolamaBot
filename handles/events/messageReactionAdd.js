@@ -8,10 +8,11 @@ module.exports = {
                     const reactionId = reaction.emoji.id;
                     const reactionName = reaction.emoji.name;
                     const member = reaction.message.guild.members.cache.get(user.id);
-                    if (!member) {
-                        return;
-                    }
-                    if (member) console.log(member.roles);
+                    //if (!member) {
+                     //   return;
+                    //}
+                    //if (member) 
+                    console.log(member.roles);
             }
             catch (error) {
                 console.log(error);
