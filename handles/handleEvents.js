@@ -9,7 +9,7 @@ module.exports = (client) => {
             }
         }
     };
-    bot.on('messageReactionAdd', async (reaction, user) => {
+    client.on('messageReactionAdd', async (reaction, user) => {
                 const member = reaction.message.guild.members.fetch(user.id)
                 if (reaction.partial) {
                     try {
