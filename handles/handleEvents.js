@@ -32,5 +32,5 @@ module.exports = (client) => {
                 }
             //reaction.users.remove(user.id)
            // }
-    }
+    })
 }
