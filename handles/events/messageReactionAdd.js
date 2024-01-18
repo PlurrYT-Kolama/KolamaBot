@@ -16,6 +16,6 @@ module.exports = {
         } catch (error) {
             console.error('Something went wrong when fetching the message: ', error);
             return;
-        }
+        };
     };
 };
