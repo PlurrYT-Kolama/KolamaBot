@@ -2,6 +2,7 @@ module.exports = {
     name: 'messageReactionAdd',
     once: false,
     async execute(reaction, user) {
+            console.log("test #1")
             const message = !reaction.message.partial ? reaction.message : await reaction.message.fetch();
             try {
                     const messageId = reaction.message.id;
