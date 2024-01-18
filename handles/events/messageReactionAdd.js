@@ -37,15 +37,16 @@ module.exports = {
             }
             // Now the message has been cached and is fully available
             if(reaction.message.id === '1197237806486011926'){
-            //const role = reaction.message.guild.roles.cache.find(r => r.name === '🔔')
-            console.log(reaction._emoji.name)
-            if(reaction._emoji.name === '🔔'){
-                //member.roles.add(role.id)
-                console.log(test)
-            } /*else if(reaction.name === '🔎'){
+                //const role = reaction.message.guild.roles.cache.find(r => r.name === '🔔')
+                console.log(reaction._emoji.name)
+                if(reaction._emoji.name === '🔔'){
+                    //member.roles.add(role.id)
+                    console.log(test)
+                }
+            }/*else if(reaction.name === '🔎'){
                 us
             }*/
         //reaction.users.remove(user.id)
-        },
-    },
+        }
+    };
 };
