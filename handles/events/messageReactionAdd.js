@@ -9,7 +9,7 @@ module.exports = {
             //if(reaction.message.id === '1197237806486011926'){
                 console.log(reaction._emoji.name);
                 if(reaction._emoji.name === '🎟️'){
-                    await client.ticketManager.createTicket(guildId, memberId);
+                    await gclient.ticketManager.createTicket(guildId, memberId);
                 }
             //}
         } catch (error) {
