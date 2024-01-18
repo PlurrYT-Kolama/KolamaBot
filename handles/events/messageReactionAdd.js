@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
     name: 'messageReactionAdd',
     once: false,
     async execute(reaction, user) {
@@ -18,5 +18,12 @@ module.exports = {
             catch (error) {
                 console.log(error);
             }
+    },
+}; */
+module.exports = {
+    name: 'reactionreaction',
+    once: false,
+    async execute(reaction, client) {
+        console.log("works")
     },
 };
