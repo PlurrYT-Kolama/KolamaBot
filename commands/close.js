@@ -22,7 +22,9 @@ module.exports = {
             });
             const ticket = client.ticketManager.tickets.get(interaction.channel.id);
             await client.ticketManager.closeTicket(ticket);
-          };
+          } else { 
+            interaction.reply({content: `Its not ticket AW!`})
+          }
         } else {
             interaction.reply({content: `Please ping any avaliable staff from Trust & Safety Departament To help you close ticket!`})
         }
