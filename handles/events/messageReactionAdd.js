@@ -45,5 +45,5 @@ module.exports = {
                // us
             }
         //reaction.users.remove(user.id)
-        }
+       // }
 };
