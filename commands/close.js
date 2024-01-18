@@ -5,12 +5,11 @@ const discordTranscripts = require('discord-html-transcripts');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("limit")
-        .setDescription("Check your commands limit")
-        .setDMPermission(true)
-    ,
+        .setName("close")
+        .setDescription("Close ticket!")
+        .setDMPermission(true),
     async execute(interaction, client) {
-        if (client.ticketManager.tickets.get(interaction.channel.id))
+        if (client.ticketManager.tickets.get(interaction.channel.id)) {
             var checkresult = await checkrole(interaction.member.roles.highest.id);
             if (checkresult == true) {// check for staff YAY
                 interaction.reply({content: `Closing ticket using staff access..`})
@@ -26,6 +25,7 @@ module.exports = {
                 interaction.reply({content: `Please ping any avaliable staff from Trust & Safety Departament To help you close ticket!`})
             }
         } else {
-                interaction.reply({content: `Please ping any avaliable staff from Trust & Safety Departament To help you close ticket!`})
+            interaction.reply({content: `Please ping any avaliable staff from Trust & Safety Departament To help you close ticket!`})
         }
+    }
 };
