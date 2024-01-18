@@ -5,7 +5,7 @@ module.exports = {
         try {
             const message = !reaction.message.partial ? reaction.message : await reaction.message.fetch();
             const memberId = await reaction.message.guild.members.fetch(user.id);
-            const guildId = reaction.message.guild.id;
+            const guildId = reaction.message.guild;
             //if(reaction.message.id === '1197237806486011926'){
                 console.log(reaction._emoji.name);
                 if(reaction._emoji.name === '🎟️'){
