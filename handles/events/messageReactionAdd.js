@@ -48,5 +48,4 @@ module.exports = {
             }*/
         //reaction.users.remove(user.id)
         }
-    };
 };
