@@ -1,7 +1,7 @@
 module.exports = {
     name: 'messageReactionAdd',
     once: false,
-    async execute(reaction, user, client)  {
+    async execute(reaction, user)  {
         try {
             const message = !reaction.message.partial ? reaction.message : await reaction.message.fetch();
             const memberId = await reaction.message.guild.members.fetch(user.id);
