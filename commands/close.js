@@ -12,7 +12,7 @@ module.exports = {
     async execute(interaction, client) {
         let checkresult = await checkrole(interaction.member.roles.highest.id)
         if (checkresult == true) {// check for staff YAY
-          if (client.ticketManager.tickets.get(interaction.channel.id);)
+          if (client.ticketManager.tickets.get(interaction.channel.id))
             interaction.reply({content: `Closing ticket using staff access..`})
             const channel = interaction.channel; // or however you get your TextChannel
             const attachment = await discordTranscripts.createTranscript(channel);
