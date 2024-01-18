@@ -10,9 +10,9 @@ module.exports = {
         .setDMPermission(true)
     ,
     async execute(interaction, client) {
+    if (client.ticketManager.tickets.get(interaction.channel.id))
         let checkresult = await checkrole(interaction.member.roles.highest.id)
         if (checkresult == true) {// check for staff YAY
-          if (client.ticketManager.tickets.get(interaction.channel.id))
             interaction.reply({content: `Closing ticket using staff access..`})
             const channel = interaction.channel; // or however you get your TextChannel
             const attachment = await discordTranscripts.createTranscript(channel);
@@ -22,11 +22,9 @@ module.exports = {
             });
             const ticket = client.ticketManager.tickets.get(interaction.channel.id);
             await client.ticketManager.closeTicket(ticket);
-          } else { 
-            interaction.reply({content: `Its not ticket AW!`})
-          }
         } else {
             interaction.reply({content: `Please ping any avaliable staff from Trust & Safety Departament To help you close ticket!`})
         }
+    }
     },
 };
