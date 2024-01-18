@@ -21,7 +21,7 @@
     },
 }; */
 module.exports = {
-    name: 'reactionreaction',
+    name: 'messageReactionAdd',
     once: false,
     async execute(reaction, client) {
         console.log("works")
