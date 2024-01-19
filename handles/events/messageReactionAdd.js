@@ -7,9 +7,13 @@ module.exports = {
             const memberId = await reaction.message.guild.members.fetch(user.id);
             const guildId = reaction.message.guild;
             if(reaction.message.author.id === '1098341584191365220'){
+    
                 if(reaction._emoji.name === '🎟️'){
+                  if(gclient.ticketManager.checkDoubleTickets(guildId,user.id) == false) {
                     await gclient.ticketManager.createTicket(guildId, memberId);
+                  }
                 }
+                
             }
         } catch (error) {
             console.error('Something went wrong when fetching the message: ', error);
