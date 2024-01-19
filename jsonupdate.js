@@ -21,7 +21,7 @@ async function updatejson(userid, type, highestrole, client, target, reason, tim
     } else if (type === 'unban') {
         object[userid].unbansused--;
     }
-    const channel = await client.channels.fetch('1104136422304272524')
+    const channel = await client.channels.fetch(gconfig.logchannelID)
     const Embed = new EmbedBuilder()
 	.setColor(0x0099FF)
 	.setTitle('Staff log')
