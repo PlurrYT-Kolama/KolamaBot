@@ -8,9 +8,6 @@ require('dotenv').config()
 
 module.exports = (client) => {
     client.handleCommands = async (commandFiles) => {
-        if (gconfig.debug == "1") {
-                   console.log(`Loading commands`)
-        }
         var clientId = gconfig.botID;
         if (client.test) {
             clientId = '1196909255723327599';
