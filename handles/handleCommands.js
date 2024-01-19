@@ -8,7 +8,7 @@ require('dotenv').config()
 
 module.exports = (client) => {
     client.handleCommands = async (commandFiles) => {
-        var clientId = '1098341584191365220';
+        var clientId = gconfig.botID;
         if (client.test) {
             clientId = '1196909255723327599';
         }
