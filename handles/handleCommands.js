@@ -8,6 +8,9 @@ require('dotenv').config()
 
 module.exports = (client) => {
     client.handleCommands = async (commandFiles) => {
+        if (gconfig.debug == "1") {
+                   console.log(`Loading commands`)
+        }
         var clientId = gconfig.botID;
         if (client.test) {
             clientId = '1196909255723327599';
@@ -17,6 +20,9 @@ module.exports = (client) => {
             const command = require(`../commands/${file}`);
             client.commands.set(command.data.name, command);
             client.commandArray.push(command.data.toJSON());
+            if (gconfig.debug == "1") {
+                   console.log(`Loaded slash command: ${command.data.name}`)
+            }
         }
         if (upd === '1' || upd === '2') {
             if (upd === '1') {
