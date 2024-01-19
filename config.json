@@ -6,6 +6,7 @@
   "debug": "1",
   "botID": "1098341584191365220",
   "botServerID": "1093888852546043914",
+  "status": "Kolama.Net",
   "rolecooldown": {
     "1096386858281349121": {
       "bansperday": 100,
