@@ -8,6 +8,7 @@ const client = new Client({
 });
 global.gclient = client
 const config = require('./config.json');
+global.gconfig = config
 client.prefix = config.prefix;
 client.limits = {}
 if (process.env.test) {
