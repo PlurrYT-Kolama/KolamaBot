@@ -1,6 +1,9 @@
 {
   "updatecommands": "1",
   "prefix": "k.",
+  "logchannelID": "1104136422304272524",
+  "ticketlogID": "1104136422304272524",
+  "debug": "1",
   "rolecooldown": {
     "1096386858281349121": {
       "bansperday": 100,
