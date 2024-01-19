@@ -15,7 +15,7 @@ module.exports = {
                 interaction.reply({content: `Closing ticket using staff access..`})
                 const channel = interaction.channel; // or however you get your TextChannel
                 const attachment = await discordTranscripts.createTranscript(channel);
-                const channel2 = await client.channels.fetch('1104136422304272524');
+                const channel2 = await client.channels.fetch(gconfig.ticketlogID);
                 channel2.send({
                   files: [attachment],
                 });
