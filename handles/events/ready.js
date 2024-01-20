@@ -13,7 +13,7 @@ module.exports = {
             enabled: true,
             channelId: "1094922348697763890",
             staffRole: "1101223437659279360",
-            storage: `../../../tickets.json`,
+            storage: `../../../../tickets.json`,
             ticketCache: true
         });
         if (client.test) {
