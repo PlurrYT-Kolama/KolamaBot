@@ -9,7 +9,7 @@ module.exports = {
             if(reaction.message.author.id === '1098341584191365220'){
     
                 if(reaction._emoji.name === '🎟️'){
-                  if(gclient.ticketManager.checkDoubleTickets(guildId.id,user.id) == trie) {
+                  if(gclient.ticketManager.checkDoubleTickets(guildId.id,user.id) == true) {
                     await gclient.ticketManager.createTicket(guildId, memberId);
                   }
                 }
