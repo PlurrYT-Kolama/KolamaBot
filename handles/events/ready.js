@@ -11,8 +11,8 @@ module.exports = {
         client.user.setActivity(gconfig.status, { type: ActivityType.Watching })
         client.ticketManager = new ThreadManager(client, {
             enabled: true,
-            channelId: "1094922348697763890",
-            staffRole: "1101223437659279360",
+            channelId: gconfig.ticketID,
+            staffRole: gconfig.staffAccessRoleID,
             storage: `../../../tickets.json`,
             ticketCache: true
         });
