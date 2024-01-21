@@ -21,8 +21,6 @@ const events = fs.readdirSync('./handles/events').filter(file => file.endsWith('
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 (async () => {
-    require('./license.js')(client);
-    require('./antilicense.js')(client);
     require('./handles/handleEvents.js')(client);
     require('./handles/handleCommands.js')(client);
     client.handleCommands(commandFiles);
