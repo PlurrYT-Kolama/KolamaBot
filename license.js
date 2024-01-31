@@ -1,4 +1,4 @@
-module.exports = (client) => {
+module.exports = (id) => {
     const axios = require('axios');
     const fs = require('fs');
     let bapi = 'false';
@@ -20,7 +20,7 @@ module.exports = (client) => {
     (async () => {
         console.log('LICENSE API | Started license.js.');
         try {
-            const res = await axios.get(`http://n2.kolama.net:15000/?botid=${client.user}`, {timeout: 5000});
+            const res = await axios.get(`http://n2.kolama.net:15000/?botid=${id}`, {timeout: 5000});
             console.log(client.user) // temporarily
             console.log(await res.data);
             console.log('LICENSE API | Sent request to API.');
