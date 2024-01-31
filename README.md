@@ -1,5 +1,5 @@
 # KolamaBot
-### Release: v0.2
+### Release: v0.1
 ## A very usefull bot for Kolama.Net making moderation easy to configure and has got some extra futures what we need
 ## License: https://github.com/PlurrYT-Kolama/KolamaBot/blob/main/LICENSE.txt
 
@@ -15,6 +15,10 @@ After that you muss edit .env by adding there token=bottoken
 After .env edit config.json fully! Any non edited parameter can cause issues!
 If you wish you can enable debug mode what is on by default
 Debug mode never spam or so it just saying about error's non critical happened while loading command
+**PLEASE DONT CHANGE ANY FILE LISTENED IN LICENSE! 
+ALSO PLACE BOT IN SPERATE FOLDER WHAT IS LOCKED FROM ANY OTHER FILES LIKE PERSONAL PHOTOS OR OTHER CODES!
+IF YOU DONT DO THIS YOUR DATA MIGHT GET GONNA IF OUR API WILL FALSE DETECT YOUR BOT IN BANNED LIST!**
+
 
 ## How to edit code?
 Just edit it don't forget to use node.js v21.x syntax and discord.js v14!
@@ -22,7 +26,7 @@ If you will push to repo something please mention what does it add all npm modul
 
 ## Note
 
-This is official src of Kolama.Net (SCP.kolama.net) Bot code!
+This is official src of Kolama.Net Bot code!
 Use it please only for private/personal usage and write credits aka follow license
 Hopefully you will like this code we were working hard for it
 
