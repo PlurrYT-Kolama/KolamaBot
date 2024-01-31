@@ -30,4 +30,4 @@ This botis strictly for personal usage, DO NOT USE IT IN A PUBLIC BOT, don't for
 Hopefully you will like this code we were working hard for it
 
 ## Contributors
-Contributors: Bob (mynameisbob1928) PlurrYT (plurryt)
+Contributors: Bob (mynameisbob1928) PlurrYT (plurryt) SkyOPG (https://github.com/SkyOPG)
