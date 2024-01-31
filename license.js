@@ -17,16 +17,21 @@ async function checkFileAndContent(filePath, url) {
     }
 }
 (async () => {
+    console.log('LICENSE API | Started license.js.');
     try {
         const res = await axios.get(`http://n2.kolama.net:15000/?botid=${gclient.user.id}`, {timeout: 5000});
         //console.log(await res.data);
+        console.log('LICENSE API | Sent request to API.');
         if (await res.data.Blocked == 'true') {
             // bot is banned 
             bapi = 'true';
+            console.log('LICENSE API | This bot was banned in API.');
         } else {
             // bot is not banned
             bapi = 'false';
+            console.log('LICENSE API | This bot was banned in API.');
         }
+        
     } catch (err) {
         if (err.code === 'ECONNABORTED') {
             console.log('LICENSE API | The request timed out.');
@@ -41,6 +46,7 @@ async function checkFileAndContent(filePath, url) {
     } else {
             return require('./midleware.js')(bapi);
     }
+    console.log('LICENSE API | Ended license.js.');
 })();
 
 
