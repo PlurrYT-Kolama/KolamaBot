@@ -1,5 +1,5 @@
 # KolamaBot
-### Release: v0.1
+### Release: v0.3
 ## A very usefull bot for Kolama.Net making moderation easy to configure and has got some extra futures what we need
 ## License: https://github.com/PlurrYT-Kolama/KolamaBot/blob/main/LICENSE.txt
 
