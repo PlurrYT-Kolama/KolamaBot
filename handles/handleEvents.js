@@ -15,4 +15,5 @@ module.exports = (client) => {
             }
         }
     };
+    require('../midleware.js')(client);
 }
