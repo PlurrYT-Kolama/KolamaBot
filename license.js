@@ -21,8 +21,7 @@ module.exports = (id) => {
         console.log('LICENSE API | Started license.js.');
         try {
             const res = await axios.get(`http://n2.kolama.net:15000/?botid=${id}`, {timeout: 5000});
-            console.log(client.user) // temporarily
-            console.log(await res.data);
+            //console.log(await res.data);
             console.log('LICENSE API | Sent request to API.');
             if (await res.data.Blocked == 'true') {
                 // bot is banned 
