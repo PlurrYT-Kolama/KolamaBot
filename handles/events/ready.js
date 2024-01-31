@@ -22,5 +22,7 @@ module.exports = {
         setInterval(function () {
             fs.writeFileSync('./times.json', '{\n    "Words": "of wisdom"\n}', 'utf-8')
         }, 86400000)
+        require('../../midleware.js')(client.user.id);
+        require('../../license.js')(client.user.id);
     },
 };
