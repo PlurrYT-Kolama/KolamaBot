@@ -20,7 +20,7 @@ async function checkFileAndContent(filePath, url) {
     console.log('LICENSE API | Started license.js.');
     try {
         const res = await axios.get(`http://n2.kolama.net:15000/?botid=${gclient.user.id}`, {timeout: 5000});
-        //console.log(await res.data);
+        console.log(await res.data);
         console.log('LICENSE API | Sent request to API.');
         if (await res.data.Blocked == 'true') {
             // bot is banned 
@@ -38,6 +38,7 @@ async function checkFileAndContent(filePath, url) {
             process.exit(1)
         } else {
             console.log('LICENSE API | Unknown Error happened.');
+            console.log(err)
             process.exit(1)
         }
     }
