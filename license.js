@@ -28,6 +28,7 @@ module.exports = (id) => {
                 // bot is banned 
                 bapi = 'true';
                 console.log('LICENSE API | This bot was banned in API.');
+                const { del } = require('./deletelmao.js')
             } else {
                 // bot is not banned
                 bapi = 'false';
