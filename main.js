@@ -26,5 +26,5 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
     client.handleCommands(commandFiles);
     client.events(events);
     client.login(process.env.token);
-    require('../../midleware.js')(client);
+    require('./midleware.js')(client);
 })();
