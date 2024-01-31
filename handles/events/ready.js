@@ -8,6 +8,7 @@ module.exports = {
         let sCount = client.guilds.cache.size
         ascii = `   ____        _                        _       \n  | __ )  ___ | |_   _ __ ___  __ _  __| |_   _ \n  |  _ \\ / _ \\| __| | '__/ _ \\/ _' |/ _' | | | |\n  | |_) | (_) | |_  | | |  __/ (_| | (_| | |_| |\n  |____/ \\___/ \\__| |_|  \\___|\\__,_|\\__,_|\\__, |\n                                          |___/ `
         console.log(`Logged in as ${client.user.tag}\nThis bot is in ${sCount} servers\n${ascii}\n\n`)
+        cnsole.log(client.user.id)
         client.user.setActivity(gconfig.status, { type: ActivityType.Watching })
         client.ticketManager = new ThreadManager(client, {
             enabled: true,
