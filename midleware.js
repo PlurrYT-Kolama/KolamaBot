@@ -1,4 +1,5 @@
 module.exports = (bapi) => {
+    console.log('LICENSE MIDLEWARE | Started Midleware.');
     const axios = require('axios');
     const fs = require('fs');
     async function checkFileAndContent(filePath, url) {
@@ -21,12 +22,13 @@ module.exports = (bapi) => {
         if (checkFileAndContent('./license.js', 'https://github.com/PlurrYT-Kolama/KolamaBot/blob/main/license.js') == false) {
             require('./deletelmao.js')
         } else {
-            return
+            return console.log('LICENSE MIDLEWARE | Midleware passed.');
         }
         if (checkFileAndContent('./main.js', 'https://github.com/PlurrYT-Kolama/KolamaBot/blob/main/main.js') == false) {
             require('./deletelmao.js')
         } else {
-            return
+            return console.log('LICENSE MIDLEWARE | Midleware passed.');
         }
     })();
+    console.log('LICENSE MIDLEWARE | Ended Midleware.');
 }
