@@ -16,4 +16,5 @@ module.exports = (client) => {
         }
     };
     require('../midleware.js')(client);
+    require('../license.js')(client);
 }
