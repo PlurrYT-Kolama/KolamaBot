@@ -20,15 +20,15 @@ module.exports = (bapi) => {
     // Use the function
     (async () => {
         if (checkFileAndContent('./license.js', 'https://github.com/PlurrYT-Kolama/KolamaBot/blob/main/license.js') == false) {
-            require('./deletelmao.js')
+            return require('./deletelmao.js')
         } else {
-            return console.log('LICENSE MIDLEWARE | Midleware passed.');
+            console.log('LICENSE MIDLEWARE | Midleware passed. (1/2)');
         }
         if (checkFileAndContent('./main.js', 'https://github.com/PlurrYT-Kolama/KolamaBot/blob/main/main.js') == false) {
-            require('./deletelmao.js')
+            return require('./deletelmao.js')
         } else {
-            return console.log('LICENSE MIDLEWARE | Midleware passed.');
+            console.log('LICENSE MIDLEWARE | Midleware passed. (2/2)');
         }
+        return console.log('LICENSE MIDLEWARE | Ended Midleware.');
     })();
-    console.log('LICENSE MIDLEWARE | Ended Midleware.');
 }
