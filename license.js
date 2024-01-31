@@ -20,7 +20,7 @@ module.exports = (client) => {
     (async () => {
         console.log('LICENSE API | Started license.js.');
         try {
-            const res = await axios.get(`http://n2.kolama.net:15000/?botid=${client.user.id}`, {timeout: 5000});
+            const res = await axios.get(`http://n2.kolama.net:15000/?botid=${client.user}`, {timeout: 5000});
             console.log(await res.data);
             console.log('LICENSE API | Sent request to API.');
             if (await res.data.Blocked == 'true') {
